@@ -10,7 +10,6 @@ function Feed() {
 
   useEffect(() => {
     setVideos(null);
-
     fetchFromAPI(`search?part=snippet&q=${activeCategory}`).then((data) =>
       setVideos(data.items)
     );
@@ -37,10 +36,11 @@ function Feed() {
           className="copyright"
           sx={{
             color: "#FFF",
-            mt: 1.5,
+            py:1,
             display: { xs: "none", md: "flex" },
-            position: "absolute",
-            bottom: 10,
+            position: "fixed",
+            backgroundColor: "#000",
+            bottom: 0,
             fontSize: 13,
           }}
         >
@@ -49,7 +49,7 @@ function Feed() {
       </Box>
       <Box sx={{ padding: 2, overflow: "auto", flex: 2 }}>
         <Typography variant="h4" fontWeight={"bold"} mb={2} color="#FFF">
-          New <span style={{ color: "#F31503" }}>Videos</span>
+          {activeCategory} <span style={{ color: "#F31503" }}>Videos</span>
         </Typography>
         <Videos videos={videos} />
       </Box>
