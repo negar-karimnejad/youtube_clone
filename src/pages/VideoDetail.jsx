@@ -22,7 +22,7 @@ function VideoDetail() {
       (data) => setVideos(data.items)
     );
   }, [id]);
-console.log(video);
+
   return (
     <Box minHeight="95vh" display={"flex"} gap={2}>
       <Box flex={9}>
