@@ -5,14 +5,14 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchFromAPI } from "../utilities/fetchFromAPI";
 import ChannelCard from "../components/ChannelCard";
+import { fetchFromAPI } from "../utilities/fetchFromAPI";
 
 function ChannelDetail() {
   const { id } = useParams();
   const [channel, setChannel] = useState(null);
   const [channelVideos, setChannelVideos] = useState(null);
-  console.log(channel);
+
   useEffect(() => {
     fetchFromAPI(`channels?part=snippet.statistics&id=${id}`).then((data) =>
       setChannel(data.items[0])
@@ -22,6 +22,7 @@ function ChannelDetail() {
       `search?channelId=${id}&part=snippet%2Cid&order=date&maxResults=50`
     ).then((data) => setChannelVideos(data.items));
   }, [id]);
+
   return (
     <Box>
       <Box>
@@ -33,9 +34,8 @@ function ChannelDetail() {
             zIndex: 10,
           }}
         />
-        {/* <ChannelCard channelDetail={channel} marginTop="-93px" /> */}
+        <ChannelCard channelDetail={channel} marginTop="-93px" />
       </Box>
-
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={3}>
           {channelVideos?.length > 0 &&

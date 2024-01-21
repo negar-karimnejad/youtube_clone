@@ -2,7 +2,7 @@
 import { Box, CardContent, CardMedia, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Link } from "react-router-dom";
-// import { demoProfilePicture } from "../utilities/constants";
+import { demoProfilePicture } from "../utilities/constants";
 
 // eslint-disable-next-line react/prop-types
 const ChannelCard = ({ channel, marginTop }) => (
@@ -30,7 +30,7 @@ const ChannelCard = ({ channel, marginTop }) => (
         }}
       >
         <CardMedia
-          image={channel?.snippet?.thumbnails?.medium?.url}
+          image={channel?.snippet?.thumbnails?.high?.url || demoProfilePicture}
           alt={channel?.snippet?.title}
           sx={{
             borderRadius: "50%",
