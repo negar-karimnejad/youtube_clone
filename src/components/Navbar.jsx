@@ -15,6 +15,7 @@ function Navbar() {
         alignItems: "center",
         justifyContent: "space-between",
         backgroundColor: "#000",
+        zIndex:50
       }}
     >
       <Link to={"/"} style={{ display: "flex", alignItems: "center" }}>
