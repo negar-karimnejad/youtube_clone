@@ -1,7 +1,21 @@
 import { Box, Stack, Typography } from "@mui/material";
 import Sidebar from "../components/Sidebar";
+import Videos from "../components/Videos";
+import { fetchFromAPI } from "../utilities/fetchFromAPI";
+import { useEffect, useState } from "react";
 
 function Feed() {
+  const [activeCategory, setActiveCategory] = useState("New");
+  const [videos, setVideos] = useState(null);
+
+  useEffect(() => {
+    setVideos(null);
+
+    fetchFromAPI(`search?part=snippet&q=${activeCategory}`).then((data) =>
+      setVideos(data.items)
+    );
+  }, [activeCategory]);
+
   return (
     <Stack
       sx={{
@@ -15,7 +29,10 @@ function Feed() {
           position: "relative",
         }}
       >
-        <Sidebar />
+        <Sidebar
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+        />
         <Typography
           className="copyright"
           sx={{
@@ -29,6 +46,12 @@ function Feed() {
         >
           Copyright {new Date().getFullYear()} JSM Media
         </Typography>{" "}
+      </Box>
+      <Box sx={{ padding: 2, overflow: "auto", flex: 2 }}>
+        <Typography variant="h4" fontWeight={"bold"} mb={2} color="#FFF">
+          New <span style={{ color: "#F31503" }}>Videos</span>
+        </Typography>
+        <Videos videos={videos} />
       </Box>
     </Stack>
   );

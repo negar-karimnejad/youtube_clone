@@ -1,10 +1,8 @@
 import { Box, Stack } from "@mui/material";
-import { useState } from "react";
 import { categories } from "../utilities/constants";
 
-function Sidebar() {
-  const [activeCategory, setActiveCategory] = useState("New");
-
+// eslint-disable-next-line react/prop-types
+function Sidebar({ activeCategory, setActiveCategory }) {
   return (
     <Stack
       direction="row"
