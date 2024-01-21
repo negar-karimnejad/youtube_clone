@@ -12,7 +12,7 @@ function VideoDetail() {
   const { id } = useParams();
   const [video, setVideo] = useState(null);
   const [videos, setVideos] = useState(null);
-  console.log(videos);
+
   useEffect(() => {
     fetchFromAPI(`videos?part=snippet.statistics&id=${id}`).then((data) =>
       setVideo(data.items[0])
@@ -22,7 +22,7 @@ function VideoDetail() {
       (data) => setVideos(data.items)
     );
   }, [id]);
-
+console.log(video);
   return (
     <Box minHeight="95vh" display={"flex"} gap={2}>
       <Box flex={9}>
@@ -32,7 +32,7 @@ function VideoDetail() {
           controls
         />
         <Box sx={{ px: 2, pt: 2 }}>
-          <Typography variant="body1" color="#fff" sx={{ pb:1 }}>
+          <Typography variant="body1" color="#fff" sx={{ pb: 1 }}>
             {video?.snippet.title}
           </Typography>
           <Link to={`/channel/${video?.snippet.channelId}`}>
@@ -88,18 +88,21 @@ function VideoDetail() {
                     >
                       {video.snippet.title.slice(0, 60)}...
                     </Typography>
-                    <Link to={`/channel/${video.snippet?.channelId}`}>
-                      <Typography color="#999" sx={{ fontSize: 16, mt: 2 }}>
-                        {video.snippet.channelTitle}
-                        <CheckCircle
-                          sx={{
-                            fontSize: "12px",
-                            color: "gray",
-                            ml: "5px",
-                          }}
-                        />
-                      </Typography>
-                    </Link>
+                    <Box>
+                      <Link to={`/channel/${video.snippet?.channelId}`}>
+                        <Typography color="#999" sx={{ fontSize: 16, mt: 2 }}>
+                          {video.snippet.channelTitle}
+                          <CheckCircle
+                            sx={{
+                              fontSize: "12px",
+                              color: "gray",
+                              ml: "5px",
+                            }}
+                          />
+                        </Typography>
+                      </Link>
+                      <Typography variant="body1" color="initial"></Typography>
+                    </Box>
                   </CardContent>
                 </CardActionArea>
               </Card>
