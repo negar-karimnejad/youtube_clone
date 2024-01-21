@@ -33,7 +33,7 @@ function ChannelDetail() {
             zIndex: 10,
           }}
         />
-        <ChannelCard channelDetail={channel} marginTop="-93px" />
+        {/* <ChannelCard channelDetail={channel} marginTop="-93px" /> */}
       </Box>
 
       <Box sx={{ flexGrow: 1 }}>

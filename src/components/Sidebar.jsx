@@ -25,6 +25,7 @@ function Sidebar({ activeCategory, setActiveCategory }) {
             borderRadius: 20,
             px: 2,
             py: { xs: 0, md: 1 },
+            cursor: "pointer",
           }}
           style={{
             backgroundColor: activeCategory === category.name && "#FC1503",
