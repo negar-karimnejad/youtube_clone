@@ -5,14 +5,15 @@ import {
   Paper,
   Stack,
   Typography,
-  CheckCircle,
   Grid,
 } from "@mui/material";
+import { CheckCircle } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 
 // NAVBAR
 export const NavbarStack = styled(Stack)(({ theme }) => ({
   padding: theme.spacing(2),
+  display: "flex",
   position: "sticky",
   top: 0,
   alignItems: "center",
@@ -25,8 +26,7 @@ export const NavbarStack = styled(Stack)(({ theme }) => ({
 export const SidebarStack = styled(Stack)(({ theme }) => ({
   overflow: "auto",
   height: { sx: "auto", md: "95%" },
-  flexDirection: { md: "column" },
-  p: theme.spacing(1),
+  padding: theme.spacing(1),
   [theme.breakpoints.down("lg")]: {
     gap: theme.spacing(3),
   },
@@ -35,6 +35,7 @@ export const SidebarStack = styled(Stack)(({ theme }) => ({
   },
   [theme.breakpoints.up("md")]: {
     height: "95%",
+    flexDirection: "column",
   },
 }));
 
@@ -43,13 +44,13 @@ export const SidebarBox = styled(Box)(({ theme }) => ({
   alignItems: "center",
   gap: theme.spacing(2),
   borderRadius: 20,
-  px: theme.spacing(2),
+  padding: theme.spacing(1, 2, 1, 2),
   cursor: "pointer",
-  [theme.breakpoints.up("md")]: {
-    py: theme.spacing(1),
+  [theme.breakpoints.down("md")]: {
+    padding: theme.spacing(0.4, 2),
   },
-  [theme.breakpoints.up("xs")]: {
-    py: theme.spacing(0),
+  [theme.breakpoints.up("md")]: {
+    margin: theme.spacing(0, 2),
   },
 }));
 
@@ -58,10 +59,7 @@ export const SearchbarPaper = styled(Paper)(({ theme }) => ({
   borderRadius: 20,
   border: "1px solid #e3e3e3",
   boxShadow: "none",
-  pl: theme.spacing(2),
-  [theme.breakpoints.down("md")]: {
-    mr: theme.spacing(5),
-  },
+  paddingLeft: theme.spacing(2),
 }));
 
 // CHANNEL CARD
@@ -77,7 +75,7 @@ export const ChannelCardMedia = styled(CardMedia)(({ theme }) => ({
   borderRadius: "50%",
   height: "180px",
   width: "180px",
-  mb: theme.spacing(2),
+  marginBottom: theme.spacing(2),
   border: "1px solid #e3e3e3",
 }));
 
@@ -85,7 +83,7 @@ export const ChannelCardMedia = styled(CardMedia)(({ theme }) => ({
 export const ChannelDetailCardContent = styled(CardContent)(({ theme }) => ({
   backgroundColor: "#1E1E1E",
   height: "106px",
-  pb: theme.spacing(5),
+  paddingBottom: theme.spacing(5),
 }));
 
 // VIDEOS
@@ -104,7 +102,7 @@ export const VideoDetailGrid = styled(Grid)(() => ({
 // FEED
 export const FeedCopyright = styled(Typography)(({ theme }) => ({
   color: "#FFF",
-  py: theme.spacing(1),
+  padding: theme.spacing(1),
   position: "fixed",
   backgroundColor: "#000",
   bottom: 0,
@@ -130,10 +128,10 @@ export const FeedBox = styled(Box)(({ theme }) => ({
   borderRight: "1px solid #3d3d3d",
   position: "relative",
   [theme.breakpoints.up("md")]: {
-    px: 2,
+    padding: (0, 2, 0, 2),
   },
   [theme.breakpoints.up("sx")]: {
-    px: 0,
+    padding: 0,
   },
 }));
 
@@ -141,5 +139,5 @@ export const FeedBox = styled(Box)(({ theme }) => ({
 export const CustomCheckCircle = styled(CheckCircle)(({ theme }) => ({
   fontSize: "14px",
   color: "gray",
-  ml: theme.spacing("5px"),
+  margin: theme.spacing(0, 0, 0, "5px"),
 }));

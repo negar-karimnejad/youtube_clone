@@ -5,7 +5,7 @@ import Searchbar from "./Searchbar";
 
 function Navbar() {
   return (
-    <NavbarStack>
+    <NavbarStack direction="row">
       <Link to={"/"} style={{ display: "flex", alignItems: "center" }}>
         <img src={logo} style={{ height: 45 }} alt="logo" />
       </Link>
