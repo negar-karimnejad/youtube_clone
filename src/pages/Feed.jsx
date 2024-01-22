@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Videos from "../components/Videos";
@@ -27,12 +27,12 @@ function Feed() {
           Copyright {new Date().getFullYear()} JSM Media
         </FeedCopyright>{" "}
       </FeedBox>
-      <FeedBox sx={{ padding: 2, overflow: "auto", flex: 2 }}>
+      <Box sx={{ padding: 2, overflow: "auto", flex: 2 }}>
         <Typography variant="h4" fontWeight={"bold"} mb={2} color="#FFF">
           {activeCategory} <span style={{ color: "#F31503" }}>Videos</span>
         </Typography>
         <Videos videos={videos} />
-      </FeedBox>
+      </Box>
     </FeedStack>
   );
 }

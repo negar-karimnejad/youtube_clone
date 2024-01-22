@@ -130,7 +130,7 @@ export const FeedBox = styled(Box)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     padding: (0, 2, 0, 2),
   },
-  [theme.breakpoints.up("sx")]: {
+  [theme.breakpoints.down("md")]: {
     padding: 0,
   },
 }));
