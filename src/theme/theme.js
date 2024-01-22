@@ -1,13 +1,13 @@
+import { CheckCircle } from "@mui/icons-material";
 import {
   Box,
   CardContent,
   CardMedia,
+  Grid,
   Paper,
   Stack,
   Typography,
-  Grid,
 } from "@mui/material";
-import { CheckCircle } from "@mui/icons-material";
 import { styled } from "@mui/material/styles";
 
 // NAVBAR
@@ -25,7 +25,6 @@ export const NavbarStack = styled(Stack)(({ theme }) => ({
 // SIDEBAR
 export const SidebarStack = styled(Stack)(({ theme }) => ({
   overflow: "auto",
-  height: { sx: "auto", md: "95%" },
   padding: theme.spacing(1),
   [theme.breakpoints.down("lg")]: {
     gap: theme.spacing(3),
@@ -102,6 +101,8 @@ export const VideoDetailGrid = styled(Grid)(() => ({
 // FEED
 export const FeedCopyright = styled(Typography)(({ theme }) => ({
   color: "#FFF",
+  width: 185,
+  textAlign: "center",
   padding: theme.spacing(1),
   position: "fixed",
   backgroundColor: "#000",
@@ -111,7 +112,7 @@ export const FeedCopyright = styled(Typography)(({ theme }) => ({
     display: "none",
   },
   [theme.breakpoints.up("md")]: {
-    display: "flex",
+    display: "block",
   },
 }));
 
