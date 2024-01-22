@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Box, CardContent, CardMedia, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { demoProfilePicture } from "../utilities/constants";
+import { ChannelCardContent, ChannelCardMedia } from "../theme/theme";
 
 // eslint-disable-next-line react/prop-types
 const ChannelCard = ({ channel, marginTop }) => (
@@ -20,25 +21,10 @@ const ChannelCard = ({ channel, marginTop }) => (
     }}
   >
     <Link to={`/channel/${channel?.id?.channelId}`}>
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          textAlign: "center",
-          color: "#fff",
-        }}
-      >
-        <CardMedia
+      <ChannelCardContent>
+        <ChannelCardMedia
           image={channel?.snippet?.thumbnails?.high?.url || demoProfilePicture}
           alt={channel?.snippet?.title}
-          sx={{
-            borderRadius: "50%",
-            height: "180px",
-            width: "180px",
-            mb: 2,
-            border: "1px solid #e3e3e3",
-          }}
         />
         <Typography variant="h6">
           {channel?.snippet?.title}
@@ -54,7 +40,7 @@ const ChannelCard = ({ channel, marginTop }) => (
             Subscribers
           </Typography>
         )}
-      </CardContent>
+      </ChannelCardContent>
     </Link>
   </Box>
 );

@@ -1,11 +1,9 @@
-import { CheckCircle } from "@mui/icons-material";
-import { Box, CardActionArea, Grid, Typography } from "@mui/material";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import { Box, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import ChannelBanner from "../components/ChannelBanner";
 import ChannelCard from "../components/ChannelCard";
+import ChannelDetailCard from "../components/ChannelDetailCard";
 import { fetchFromAPI } from "../utilities/fetchFromAPI";
 
 function ChannelDetail() {
@@ -26,63 +24,14 @@ function ChannelDetail() {
   return (
     <Box>
       <Box>
-        <div
-          style={{
-            height: "300px",
-            background:
-              "linear-gradient(90deg, rgba(0,238,247,1) 0%, rgba(206,3,184,1) 100%, rgba(0,212,255,1) 100%)",
-            zIndex: 10,
-          }}
-        />
+        <ChannelBanner />
         <ChannelCard channelDetail={channel} marginTop="-93px" />
       </Box>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={3}>
           {channelVideos?.length > 0 &&
             channelVideos.map((video) => (
-              <Grid key={video.id.videoId} item xs={12} sm={6} lg={4}>
-                <Card
-                  sx={{
-                    color: "#FFF",
-                  }}
-                >
-                  <CardActionArea>
-                    <Link to={`/video/${video.id.videoId}`}>
-                      <CardMedia
-                        sx={{ width: "100%", height: 180 }}
-                        component="img"
-                        image={video.snippet.thumbnails.high.url}
-                        alt={video.snippet.title}
-                      />
-                    </Link>
-                    <CardContent
-                      sx={{
-                        backgroundColor: "#1E1E1E",
-                        height: "106px",
-                        pb: 5,
-                      }}
-                    >
-                      <Typography
-                        gutterBottom
-                        sx={{
-                          fontSize: 18,
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {video.snippet.title.slice(0, 60)}...
-                      </Typography>
-                      <Link to={`/channel/${video.snippet?.channelId}`}>
-                        <Typography color="#999" sx={{ fontSize: 16, mt: 2 }}>
-                          {video.snippet.channelTitle}
-                          <CheckCircle
-                            sx={{ fontSize: "12px", color: "gray", ml: "5px" }}
-                          />
-                        </Typography>
-                      </Link>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
-              </Grid>
+              <ChannelDetailCard key={video.id.videoId} {...video} />
             ))}
         </Grid>
       </Box>

@@ -5,9 +5,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Link } from "react-router-dom";
+import { Title } from "../theme/theme";
 
 function Videos({ videos }) {
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={3}>
@@ -31,15 +31,9 @@ function Videos({ videos }) {
                   <CardContent
                     sx={{ backgroundColor: "#1E1E1E", height: "106px", pb: 5 }}
                   >
-                    <Typography
-                      gutterBottom
-                      sx={{
-                        fontSize: 18,
-                        fontWeight: "bold",
-                      }}
-                    >
+                    <Title gutterBottom>
                       {video.snippet.title.slice(0, 60)}...
-                    </Typography>
+                    </Title>
                     <Link to={`/channel/${video.snippet?.channelId}`}>
                       <Typography color="#999" sx={{ fontSize: 16, mt: 2 }}>
                         {video.snippet.channelTitle}

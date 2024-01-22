@@ -1,32 +1,14 @@
-import { Box, Stack } from "@mui/material";
+import { SidebarBox, SidebarStack } from "../theme/theme";
 import { categories } from "../utilities/constants";
 
 // eslint-disable-next-line react/prop-types
 function Sidebar({ activeCategory, setActiveCategory }) {
   return (
-    <Stack
-      direction="row"
-      sx={{
-        overflow: "auto",
-        height: { sx: "auto", md: "95%" },
-        flexDirection: { md: "column" },
-        p: 1,
-        gap: { md: 3 },
-      }}
-    >
+    <SidebarStack direction="row">
       {categories.map((category, index) => (
-        <Box
-          onClick={() => setActiveCategory(category.name)}
+        <SidebarBox
           key={index}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: 2,
-            borderRadius: 20,
-            px: 2,
-            py: { xs: 0, md: 1 },
-            cursor: "pointer",
-          }}
+          onClick={() => setActiveCategory(category.name)}
           style={{
             backgroundColor: activeCategory === category.name && "#FC1503",
           }}
@@ -39,9 +21,9 @@ function Sidebar({ activeCategory, setActiveCategory }) {
             {category.icon}
           </span>
           <span style={{ color: "#FFF" }}>{category.name}</span>
-        </Box>
+        </SidebarBox>
       ))}
-    </Stack>
+    </SidebarStack>
   );
 }
 
