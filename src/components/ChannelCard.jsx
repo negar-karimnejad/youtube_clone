@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import {
+  ChannelCardContent,
+  ChannelCardMedia,
+  CustomCheckCircle,
+} from "../theme/theme";
 import { demoProfilePicture } from "../utilities/constants";
-import { ChannelCardContent, ChannelCardMedia } from "../theme/theme";
 
 // eslint-disable-next-line react/prop-types
 const ChannelCard = ({ channel, marginTop }) => (
@@ -28,9 +31,7 @@ const ChannelCard = ({ channel, marginTop }) => (
         />
         <Typography variant="h6">
           {channel?.snippet?.title}
-          <CheckCircleIcon
-            sx={{ fontSize: "14px", color: "gray", ml: "5px" }}
-          />
+          <CustomCheckCircle />
         </Typography>
         {channel?.statistics?.subscriberCount && (
           <Typography sx={{ fontSize: "15px", fontWeight: 500, color: "gray" }}>

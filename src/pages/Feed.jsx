@@ -1,8 +1,9 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Videos from "../components/Videos";
+import { FeedBox, FeedCopyright, FeedStack } from "../theme/theme";
 import { fetchFromAPI } from "../utilities/fetchFromAPI";
-import { useEffect, useState } from "react";
 
 function Feed() {
   const [activeCategory, setActiveCategory] = useState("New");
@@ -16,44 +17,23 @@ function Feed() {
   }, [activeCategory]);
 
   return (
-    <Stack
-      sx={{
-        flexDirection: { sx: "column", md: "row" },
-      }}
-    >
-      <Box
-        sx={{
-          borderRight: "1px solid #3d3d3d",
-          px: { sx: 0, md: 2 },
-          position: "relative",
-        }}
-      >
+    <FeedStack>
+      <FeedBox>
         <Sidebar
           activeCategory={activeCategory}
           setActiveCategory={setActiveCategory}
         />
-        <Typography
-          className="copyright"
-          sx={{
-            color: "#FFF",
-            py:1,
-            display: { xs: "none", md: "flex" },
-            position: "fixed",
-            backgroundColor: "#000",
-            bottom: 0,
-            fontSize: 13,
-          }}
-        >
+        <FeedCopyright className="copyright">
           Copyright {new Date().getFullYear()} JSM Media
-        </Typography>{" "}
-      </Box>
-      <Box sx={{ padding: 2, overflow: "auto", flex: 2 }}>
+        </FeedCopyright>{" "}
+      </FeedBox>
+      <FeedBox sx={{ padding: 2, overflow: "auto", flex: 2 }}>
         <Typography variant="h4" fontWeight={"bold"} mb={2} color="#FFF">
           {activeCategory} <span style={{ color: "#F31503" }}>Videos</span>
         </Typography>
         <Videos videos={videos} />
-      </Box>
-    </Stack>
+      </FeedBox>
+    </FeedStack>
   );
 }
 

@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
-import { CheckCircle } from "@mui/icons-material";
 import { CardActionArea, Grid, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import { Link } from "react-router-dom";
-import { ChannelDetailCardContent, Title } from "../theme/theme";
+import { ChannelDetailCardContent, CustomCheckCircle, Title } from "../theme/theme";
 
 function ChannelDetailCard({ video }) {
   return (
@@ -28,9 +27,7 @@ function ChannelDetailCard({ video }) {
             <Link to={`/channel/${video.snippet?.channelId}`}>
               <Typography color="#999" sx={{ fontSize: 16, mt: 2 }}>
                 {video.snippet.channelTitle}
-                <CheckCircle
-                  sx={{ fontSize: "12px", color: "gray", ml: "5px" }}
-                />
+                <CustomCheckCircle />
               </Typography>
             </Link>
           </ChannelDetailCardContent>

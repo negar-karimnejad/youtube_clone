@@ -1,10 +1,12 @@
 import {
-    Box,
-    CardContent,
-    CardMedia,
-    Paper,
-    Stack,
-    Typography,
+  Box,
+  CardContent,
+  CardMedia,
+  Paper,
+  Stack,
+  Typography,
+  CheckCircle,
+  Grid,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
@@ -70,6 +72,7 @@ export const ChannelCardContent = styled(CardContent)(() => ({
   textAlign: "center",
   color: "#fff",
 }));
+
 export const ChannelCardMedia = styled(CardMedia)(({ theme }) => ({
   borderRadius: "50%",
   height: "180px",
@@ -89,4 +92,54 @@ export const ChannelDetailCardContent = styled(CardContent)(({ theme }) => ({
 export const Title = styled(Typography)(() => ({
   fontSize: 18,
   fontWeight: "bold",
+}));
+
+// VIDEO DETAIL
+export const VideoDetailGrid = styled(Grid)(() => ({
+  flex: 3,
+  overflowY: "scroll",
+  height: "95vh",
+}));
+
+// FEED
+export const FeedCopyright = styled(Typography)(({ theme }) => ({
+  color: "#FFF",
+  py: theme.spacing(1),
+  position: "fixed",
+  backgroundColor: "#000",
+  bottom: 0,
+  fontSize: 13,
+  [theme.breakpoints.up("xs")]: {
+    display: "none",
+  },
+  [theme.breakpoints.up("md")]: {
+    display: "flex",
+  },
+}));
+
+export const FeedStack = styled(Stack)(({ theme }) => ({
+  [theme.breakpoints.up("sx")]: {
+    flexDirection: "column",
+  },
+  [theme.breakpoints.up("md")]: {
+    flexDirection: "row",
+  },
+}));
+
+export const FeedBox = styled(Box)(({ theme }) => ({
+  borderRight: "1px solid #3d3d3d",
+  position: "relative",
+  [theme.breakpoints.up("md")]: {
+    px: 2,
+  },
+  [theme.breakpoints.up("sx")]: {
+    px: 0,
+  },
+}));
+
+// CUSTOM CHECK CIRCLE
+export const CustomCheckCircle = styled(CheckCircle)(({ theme }) => ({
+  fontSize: "14px",
+  color: "gray",
+  ml: theme.spacing("5px"),
 }));
